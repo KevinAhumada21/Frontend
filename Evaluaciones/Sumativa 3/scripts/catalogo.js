@@ -30,3 +30,18 @@ let catalogo = [
         tiempo: 5
     },
 ];
+
+function show_data(){
+    for (let objeto of catalogo){
+        console.log(objeto.imagen);
+        console.log(objeto.codigo);
+        console.log(objeto.categoria);
+        console.log(objeto.nombre);
+        console.log(objeto.descripcion);
+        console.log(objeto.ubicacion);
+        console.log(objeto.disponibilidad);
+        console.log(objeto.imagen);
+    }
+
+    event.preventDefault()
+}
