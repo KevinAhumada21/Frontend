@@ -1,0 +1,71 @@
+/* CLASES*/
+body{
+    margin: 0;
+    background: url('https://images.pexels.com/photos/5477776/pexels-photo-5477776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.navi{
+    background-color: #8d8d8d7c;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    font-family:Arial, Helvetica, sans-serif;
+    width: 100%;
+}
+
+.inacap-ludi{
+    text-align: start;
+}
+
+.inacap-info{
+    list-style-type: none;
+}
+
+.inacap{
+    width: 200px;
+}
+
+.logo-text h1{
+    display: inline-block;
+    font-size: 50px;
+    text-align: center;
+}
+
+.carrito{
+    background-color: white;
+    height:auto;
+    margin-top: 3%;
+    margin-left: 70%;
+}
+
+.navi button{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.navi button a{
+    text-decoration: none;
+    color: black;
+}
+
+.navi button:hover{
+    background-color: rgb(51, 197, 64);
+}
+
+.get-user-info{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+#contact{
+    background-color: cornsilk;
+}
+/* IDS*/
+
+#nickname-user{
+    text-align: center;
+}
