@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/Evaluaciones/Sumativa 3/scripts/conexion.js"></script>
     <link rel="stylesheet" href="/Evaluaciones/Sumativa 3/styles/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,31 +15,30 @@
     <title>InacapLudi</title>
 </head>
 
-<body class="">
-
-
+<body>
     <nav class="navi">  
       <div class="logo-text" style="font-family: 'Oswald';">
         <ul class="inacap-info">
-          <li><h1 class="inacap-ludi">Inacap-Ludi</h1></li>
           <li><img class="inacap" src="https://lms.inacap.cl/pluginfile.php/1/core_admin/logocompact/300x300/1713210799/logo_inacap.png" alt=""></li>
+          <li><h1 class="inacap-ludi">Inacap-Ludi</h1></li>
         </ul>
       </div>
-    
-      <h1 id="nickname-user"> Bienvenido nickname</h1>
 
       <div class="get-user-info">
-        <label for="username" class="user-form">Ingresa un nombre de usuario: </label>
-        <input type="text" id="username">
-        <button onclick="show_data()"> <a href="">Enviar</a></button>
-        <button type="button" id="disconnect-user" hidden>Desconectar</button>
+        <div id="form">
+          <label for="username" >Ingresa un nombre de usuario: </label>
+          <input type="text" id="username" name="username">
+          <button onclick="conectar()">Enviar</button>
+        </div>
+        <button type="button" id="disconnect" onclick="desconectar()" hidden>Desconectar</button>
         <button> <a href="#contact">Acerca de</a></button>
-        
       </div>
+      
     </nav>
 
-    <div id="content" class="container">
-      <table class="table" border="1">
+    <h1 id="nickname-user"> Bienvenido nickname</h1>
+
+    <table class="table table-reponsive table-hover" border="2">
         <thead>
           <tr>
             <th>Imagen</th>
@@ -48,18 +48,28 @@
             <th>Descripcion</th>
             <th>Ubicacion</th>
             <th>Disponibilidad</th>
-            <th>tiempo</th>
+            <th>Tiempo</th>
+            <th>Añadir</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="catalogo">
         </tbody>
-      </table>
-  </div>
+    </table>
+
 
 
     <div class="carrito">
         <h2>Carrito de compra</h2>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta veritatis deserunt sequi inventore odio, praesentium ea, eveniet architecto laborum consequatur vero, optio dignissimos! Numquam, deleniti! Tempore tempora vitae quidem at?
+        <table class="table table-hover" border="2">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody id="carrodecompra">
+          </tbody>
+        </table>
     </div>
 
     <footer id="contact">
