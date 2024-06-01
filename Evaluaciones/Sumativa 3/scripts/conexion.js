@@ -3,7 +3,6 @@ function conectar() {
 
     if (usuario =='') {
         window.alert('No se puede ingresar un nombre vacio')
-        
     }
     else {
         document.getElementById('nickname-user').innerHTML = 'Bienvenido ' + usuario
