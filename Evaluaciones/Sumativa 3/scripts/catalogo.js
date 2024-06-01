@@ -71,7 +71,7 @@ let catalogo_original = [
     },
 ];
 
-let logueado=false
+let logueado = false
 function conectar() {
     let usuario = document.getElementById('username').value
 
@@ -106,7 +106,7 @@ function mostrarCatalogo() {
     tablaCatalogo.innerHTML = '';
 
     catalogo.forEach(function (item, index) {
-        if (logueado===true) {
+        if (logueado === true) {
             tablaCatalogo.innerHTML += `<tr>
                     <td>${index + 1}</td>
                     <td><img src="${item.imagen}" width="150"></td>
@@ -143,8 +143,9 @@ function mostrarCatalogo() {
 
 let carritoProductos = []
 function añadir(indice, eliminar) {
-    
+
     let producto = catalogo[indice];
+    let producto_original = catalogo_original[indice];
     let carro = document.getElementById('carrodecompra')
 
     let productoEnCarrito = carritoProductos.find(item => item.codigo === producto.codigo);
@@ -152,35 +153,43 @@ function añadir(indice, eliminar) {
     if (productoEnCarrito) {
         if (eliminar) {
             productoEnCarrito.cantidad--;
+            producto.disponibilidad++;
             if (productoEnCarrito.cantidad == 0) {
                 carritoProductos = carritoProductos.filter(item => item.codigo !== producto.codigo);
+
             }
+        } else {
+            if (producto.disponibilidad > 0) {
+
+                producto.disponibilidad--;
+                productoEnCarrito.cantidad++;
+            }
+            else {
+                window.alert('No hay stock disponible');
+                return;
+            }
+        }
+
+    } else {
+        if (carritoProductos.length > 0 && carritoProductos[0].ubicacion !== producto.ubicacion) {
+            window.alert('No se puede añadir productos de diferentes ubicaciones, por favor escoja otro producto');
         } else {
             if (producto.disponibilidad == 0) {
                 window.alert('No hay stock disponible');
                 return;
+            } else if (!eliminar) {
+                producto.disponibilidad--;
+                carritoProductos.push({
+                    codigo: producto.codigo,
+                    nombre: producto.nombre,
+                    ubicacion: producto.ubicacion,
+                    cantidad: 1
+                });
             }
-            producto.disponibilidad--;
-            console.log(producto.disponibilidad);
-            productoEnCarrito.cantidad++;
         }
-    } else {
-        if (carritoProductos.length > 0 && carritoProductos[0].ubicacion !== producto.ubicacion) {
-            window.alert('No se puede añadir productos de diferentes ubicaciones, por favor escoja otro producto');
-            return;
-        }
-        if (producto.disponibilidad == 0) {
-            window.alert('No hay stock disponible');
-            return;
-        }
-        producto.disponibilidad--;
-        carritoProductos.push({
-            codigo: producto.codigo,
-            nombre: producto.nombre,
-            ubicacion: producto.ubicacion,
-            cantidad: 1
-        });
     }
+
+
 
     carro.innerHTML = '';
 
