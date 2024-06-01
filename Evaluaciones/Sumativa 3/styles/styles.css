@@ -19,8 +19,19 @@ body{
 
 .inacap-ludi{
     text-align: center;
+    color: rgba(231, 75, 37, 0.897);
+    font-weight: bold;
+    
 }
 
+.ludi{
+    color: black;
+    font-family: 'Segoe UI';
+}
+
+.g{
+    color: white;
+}
 .inacap-info {
     list-style-type: none;
 }
@@ -28,14 +39,22 @@ body{
 .inacap{
     width: 150px;
     height: auto;
-
+    background-color: rgb(255, 255, 255);
 }
 
+.menos{
+    background-color: rgb(230, 72, 72);
+}
+
+.menos:hover{
+    background-color: rgb(177, 57, 57);
+}
 
 .get-user-info{
     display: flex;
     justify-content: end;
     align-items: end;
+    margin-left: auto;
 }
 
 .get-user-info label,
@@ -45,8 +64,8 @@ body{
 }
 
 .get-user-info button {
-    background-color: rgb(255, 255, 255);
-    border-radius: 10px;
+    background-color: rgb(120, 190, 231);
+    
 }
 
 .get-user-info button a {
@@ -55,16 +74,45 @@ body{
 }
 
 .get-user-info button:hover {
-    background-color: rgb(51, 197, 64);
+    background-color: rgba(120, 190, 231, 0.452);
+}
+
+.title{
+    background-color: rgba(116, 116, 116, 0.507);
+    display: flex;
+    max-width: fit-content;
+}
+
+.title h1{
+    font-family: 'prompt';
+    font-size: 30px;
+    color: white;
 }
 
 .carrito{
     background-color: white;
     height:auto;
     margin-top: 3%;
-    margin-left: 70%;
+    margin-left: 60%;
+}
+
+th{
+    font-family: 'oswald';
+}
+
+td{
+    font-family: 'prompt';
+}
+
+.añadir{
+    background-color:#26D426EA ;
+}
+
+.añadir:hover{
+    background-color: #1bad1bea;
 }
 /* IDS*/
+
 
 #nickname-user{
     margin-top: 3%;
@@ -74,4 +122,14 @@ body{
 
 #contact{
     background-color: cornsilk;
+}
+
+#username {
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 200px;
+}
+
+#catalogo{
+    font-family: 'ROBOTO';
 }
