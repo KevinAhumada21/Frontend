@@ -10,6 +10,7 @@ function conectar() {
         document.getElementById('disconnect').style.display = 'block'
         document.getElementById('btn-carrito').style.display= 'block'
         document.getElementById('carrito').hidden = false
+        document.getElementById('añadirEliminar').innerHTML = 'Añadir / Eliminar'
     }
 }
 
