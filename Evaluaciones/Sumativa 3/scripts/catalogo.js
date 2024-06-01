@@ -36,7 +36,6 @@ let catalogo = [
 
 function mostrarCatalogo() {
     let tablaCatalogo = document.getElementById("catalogo");
-    let btnDisconnect = document.getElementById('disconnect');
 
     catalogo.forEach(function (item, index) {
         tablaCatalogo.innerHTML += `<tr>
@@ -50,21 +49,34 @@ function mostrarCatalogo() {
                 <td align="center">${item.disponibilidad}</td>
                 <td align="center">${item.tiempo}</td>
                 <td align="center">
-                    <button type="button" class="añadir" onclick="añadir(${index})">+<i class="fas fa-pen"></i></button>
+                    <button type="button" class="añadir" onclick="añadir(${index}, false)">+<i class="fas fa-pen"></i></button>
+                    <button type="button" class="menos" onclick="añadir(${index}, true)">-<i class="fas fa-pen"></i></button>
                 </td>
             </tr>`;
     });
 }
 
 let carritoProductos = []
-function añadir(indice) {
+function añadir(indice, eliminar) {
     let producto = catalogo[indice];
     let carro = document.getElementById('carrodecompra')
+
     let productoEnCarrito = carritoProductos.find(item => item.codigo === producto.codigo);
 
     if (productoEnCarrito) {
-        return window.alert('Producto ya ha sido añadido');
+        if (eliminar) {
+            productoEnCarrito.cantidad--;
+            if (productoEnCarrito.cantidad <= 0) {
+                carritoProductos = carritoProductos.filter(item => item.codigo !== producto.codigo);
+            }
+        } else {
+            productoEnCarrito.cantidad++;
+        }
     } else {
+        if (carritoProductos.length > 0 && carritoProductos[0].ubicacion !== producto.ubicacion) {
+            window.alert('No se puede añadir productos de diferentes ubicaciones, por favor escoja otro producto');
+            return;
+        }
         carritoProductos.push({
             codigo: producto.codigo,
             nombre: producto.nombre,
@@ -73,22 +85,14 @@ function añadir(indice) {
         });
     }
 
-    carro.innerHTML = ''
+    carro.innerHTML = '';
 
     carritoProductos.forEach((producto, index) => {
-        let primer_producto = carritoProductos[0]
-
-        if (primer_producto.ubicacion==producto.ubicacion) {
-
-            carro.innerHTML += `<tr>
-                <td>${index + 1}</td>
-                <td>${producto.nombre}</td>
-                <td>${producto.cantidad}</td>
-                </tr>`;
-        }
-        else {
-            window.alert('No se puede añadir productos de diferentes ubicaciones, por favor escoja otro producto')
-        }
+        carro.innerHTML += `<tr>
+            <td>${index + 1}</td>
+            <td>${producto.nombre}</td>
+            <td>${producto.cantidad}</td>
+        </tr>`;
     })
 }
 
