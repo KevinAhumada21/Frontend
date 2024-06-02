@@ -1,16 +1,19 @@
 function conectar() {
     let usuario = document.getElementById('username').value
 
-    if (usuario =='') {
+    if (usuario == '') {
         window.alert('No se puede ingresar un nombre vacio')
+
     }
     else {
         document.getElementById('nickname-user').innerHTML = 'Bienvenido ' + usuario
         document.getElementById('form').style.display = 'none'
         document.getElementById('disconnect').style.display = 'block'
-        document.getElementById('btn-carrito').style.display= 'block'
+        document.getElementById('btn-carrito').style.display = 'block'
         document.getElementById('carrito').hidden = false
-        document.getElementById('añadirEliminar').innerHTML = 'Añadir / Eliminar'
+        logueado = true
+        console.log(logueado)
+        mostrarCatalogo()
     }
 }
 
@@ -19,6 +22,9 @@ function desconectar() {
     document.getElementById('disconnect').style.display = 'none'
     document.getElementById('form').style.display = 'block'
     document.getElementById('btn-carrito').style.display = 'none'
-    document.getElementById('carrito').hidden=true
+    document.getElementById('carrito').hidden = true
     document.getElementById('username').value = ''
+    logueado = false
+    console.log(logueado)
+    mostrarCatalogo()
 }

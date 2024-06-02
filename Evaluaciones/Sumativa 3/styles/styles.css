@@ -27,6 +27,7 @@ body{
 .ludi{
     color: black;
     font-family: 'Segoe UI';
+    font-style: italic;
 }
 
 .g{
@@ -132,4 +133,11 @@ td{
 
 #catalogo{
     font-family: 'ROBOTO';
+}
+
+#disconnect{
+    background-color: rgb(230, 72, 72);
+}
+#disconnect:hover{
+    background-color: rgb(177, 57, 57);
 }
