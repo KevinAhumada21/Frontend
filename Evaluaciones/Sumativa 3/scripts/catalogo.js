@@ -220,8 +220,8 @@ function conectar() {
         document.getElementById('disconnect').style.display = 'block'
         document.getElementById('btn-carrito').style.display = 'block'
         document.getElementById('carrito').hidden = false
+        document.getElementById('sesion').innerHTML = ''
         logueado = true
-        console.log(logueado)
         mostrarCatalogo()
     }
 }
@@ -234,7 +234,6 @@ function desconectar() {
     document.getElementById('carrito').hidden = true
     document.getElementById('username').value = ''
     logueado = false
-    console.log(logueado)
     catalogo = catalogo_original
     carritoProductos = []
     let carro = document.getElementById('carrodecompra')
@@ -264,7 +263,7 @@ function mostrarCatalogo() {
                     </td>
                 </tr>`;
         }
-        else {        
+        else {
             tablaCatalogo.innerHTML += `<tr>
                     <td>${index + 1}</td>
                     <td><img src="${item.imagen}" width="150"></td>
@@ -322,11 +321,14 @@ function añadir(indice, eliminar) {
                     codigo: producto.codigo,
                     nombre: producto.nombre,
                     ubicacion: producto.ubicacion,
-                    cantidad: 1
+                    cantidad: 1,
+                    tiempo: producto.tiempo
                 });
             }
         }
     }
+
+    let tiempo_mayor = 0;
 
     carro.innerHTML = '';
     carritoProductos.forEach((producto, index) => {
@@ -334,7 +336,7 @@ function añadir(indice, eliminar) {
             <td>${index + 1}</td>
             <td>${producto.nombre}</td>
             <td align="end">${producto.cantidad}
-            <button type="button" class="del-carrito" onclick="deletes(${index},carritoProductos)">Eliminar<i class="fas fa-pen"></i></button>
+            <button type="button" class="del-carrito" onclick="deletes(${index})">Eliminar<i class="fas fa-pen"></i></button>
             </td>
         </tr>`;
     })
@@ -344,8 +346,7 @@ function añadir(indice, eliminar) {
     mostrarCatalogo();
 }
 
-function deletes(index, carritoProductos) {
-    console.log('boton presionado');
+function deletes(index) {
     let carro = document.getElementById('carrodecompra')
     let productoEliminado = carritoProductos[index];
 
