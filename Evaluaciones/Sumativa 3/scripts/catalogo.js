@@ -295,7 +295,6 @@ function añadir(indice, eliminar) {
             }
         } else {
             if (producto.disponibilidad > 0) {
-
                 producto.disponibilidad--;
                 productoEnCarrito.cantidad++;
             }
@@ -324,15 +323,42 @@ function añadir(indice, eliminar) {
         }
     }
 
-
-
     carro.innerHTML = '';
-
     carritoProductos.forEach((producto, index) => {
         carro.innerHTML += `<tr>
             <td>${index + 1}</td>
             <td>${producto.nombre}</td>
-            <td>${producto.cantidad}</td>
+            <td>${producto.cantidad}
+            <button type="button" class="del-carrito" onclick="deletes(${index},carritoProductos)">Eliminar<i class="fas fa-pen"></i></button>
+            </td>
+        </tr>`;
+    })
+    let tablaCatalogo = document.getElementById("catalogo");
+    tablaCatalogo.innerHTML = '';
+    // Actualizar el catálogo
+    mostrarCatalogo();
+}
+
+function deletes(index, carritoProductos) {
+    console.log('boton presionado');
+    let carro = document.getElementById('carrodecompra')
+    let productoEliminado = carritoProductos[index];
+
+    let productoCatalogo = catalogo.find(item => item.codigo === productoEliminado.codigo);
+    if (productoCatalogo) {
+        productoCatalogo.disponibilidad += productoEliminado.cantidad;
+    }
+
+    carritoProductos.splice(index, 1);
+    carro.innerHTML = '';
+    
+    carritoProductos.forEach((producto, index) => {
+        carro.innerHTML += `<tr>
+            <td>${index + 1}</td>
+            <td>${producto.nombre}</td>
+            <td align="end">${producto.cantidad}
+            <button type="button" class="del-carrito" onclick="deletes(${index},carritoProductos)">Eliminar<i class="fas fa-pen"></i></button>
+            </td>
         </tr>`;
     })
     let tablaCatalogo = document.getElementById("catalogo");
@@ -341,4 +367,3 @@ function añadir(indice, eliminar) {
     // Actualizar el catálogo
     mostrarCatalogo();
 }
-

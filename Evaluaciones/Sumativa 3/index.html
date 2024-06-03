@@ -22,7 +22,7 @@
       <div class="logo-text" style="font-family: 'Oswald';">
         <ul class="inacap-info">
           <li><img class="inacap" src="https://lms.inacap.cl/pluginfile.php/1/core_admin/logocompact/300x300/1713210799/logo_inacap.png" alt=""></li>
-          <li>  <h1 class="inacap-ludi"><img src="/Evaluaciones/Sumativa 3/assets/chess-svgrepo-com.svg" alt="" width="50">Inacap<spanc class="g">-</span><span class="ludi">Ludi</span><img src="/Evaluaciones/Sumativa 3/assets/chess-svgrepo-com.svg" alt="" width="50"></h1>  </li>
+          <li>  <h1 class="inacap-ludi"><img src="/Evaluaciones/Sumativa 3/assets/chess-svgrepo-com.svg" alt="" width="50"><u style="text-decoration-color: rgb(0, 0, 0);">Inacap<spanc class="g">-</span><span class="ludi">Ludi</span><img src="/Evaluaciones/Sumativa 3/assets/chess-svgrepo-com.svg" alt="" width="50"> </u> </h1>  </li>
         </ul>
       </div>
 
@@ -44,7 +44,9 @@
       <h1>En inacap-ludi te presentamos las siguientes opciones de prestamo: </h1>
     </div>
 
-    <table class="table table-reponsive table-hover tabla" border="2" >
+    <div class="table-container">
+      <div class="table-show">
+      <table class="table table-hover tabla" border="2" >
         <thead>
           <tr style="text-align: center;">
             <th>#</th>
@@ -53,7 +55,7 @@
             <th>Categoria</th>
             <th>Nombre</th>
             <th>Ubicacion</th>
-            <th>Descripcion</th>
+            <th class="desc">Descripcion</th>
             <th>Disponibilidad</th>
             <th>Tiempo</th>
             <th class="añadirEliminar"></th>
@@ -61,22 +63,25 @@
         </thead>
         <tbody id="catalogo">
         </tbody>
-    </table>
-
-    <div class="carrito" id="carrito" hidden>
-        <h2>Carrito de pedidos</h2>
-        <table class="table table-hover" border="2">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Producto</th>
-              <th>Cantidad</th>
-            </tr>
-          </thead>
-          <tbody id="carrodecompra">
-          </tbody>
-        </table>
+      </table>
     </div>
+
+      <div class="carrito" id="carrito" hidden>
+          <h2>Carrito de pedidos</h2>
+          <table class="table table-hover" border="2">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody id="carrodecompra">
+            </tbody>
+          </table>
+      </div>
+    </div>
+
 
     <footer id="contact">
         <h2>Contacto</h2>

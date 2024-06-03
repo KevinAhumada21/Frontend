@@ -1,60 +1,62 @@
-/* CLASES*/
-body{
+/* General Styles */
+body {
     margin: 0;
     background: url('https://images.pexels.com/photos/5477776/pexels-photo-5477776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: 'Arial', sans-serif; /* Fuente genérica para todo el documento */
 }
 
 .navi {
     background-color: rgba(109, 109, 109, 0.301);
-    color: rgb(0, 0, 0);
+    color: black;
     width: 100%;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 10px;
 }
 
-.inacap-ludi{
+.inacap-ludi {
     text-align: center;
     color: rgba(231, 37, 37, 0.897);
     font-weight: bold;
-    
 }
 
-.ludi{
+.ludi {
     color: black;
     font-family: 'Segoe UI';
     font-style: italic;
 }
 
-.g{
+.g {
     color: white;
 }
+
 .inacap-info {
     list-style-type: none;
 }
 
-.inacap{
+.inacap {
     width: 150px;
     height: auto;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
 }
 
-.menos{
+.menos {
     background-color: rgb(230, 72, 72);
 }
 
-.menos:hover{
+.menos:hover {
     background-color: rgb(177, 57, 57);
 }
 
-.get-user-info{
+.get-user-info {
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: center;
     margin-left: auto;
 }
 
@@ -66,7 +68,6 @@ body{
 
 .get-user-info button {
     background-color: rgb(120, 190, 231);
-    
 }
 
 .get-user-info button a {
@@ -78,66 +79,150 @@ body{
     background-color: rgba(120, 190, 231, 0.452);
 }
 
-.title{
+.title {
     background-color: rgba(116, 116, 116, 0.507);
     display: flex;
     max-width: fit-content;
 }
 
-.title h1{
+.title h1 {
     font-family: 'prompt';
     font-size: 30px;
     color: white;
 }
 
-.carrito{
+.carrito {
     background-color: white;
-    height:auto;
+    height: auto;
     margin-top: 3%;
     margin-left: 60%;
 }
 
-th{
-    font-family: 'oswald';
+.table-container {
+    display: flex;
+    flex-direction: column; /* Cambia a columna para dispositivos pequeños */
+    align-items: flex-start;
 }
 
-td{
-    font-family: 'prompt';
+.table-show, .carrito {
+    flex: 1;
+    min-width: 0;
 }
 
-.añadir{
-    background-color:#26D426EA ;
+.table {
+    width: 100%;
 }
 
-.añadir:hover{
+.table th, .table td {
+    padding: 8px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+th {
+    font-family: 'Oswald';
+}
+
+td {
+    font-family: 'Prompt';
+}
+
+.añadir {
+    background-color: #26D426EA;
+}
+
+.añadir:hover {
     background-color: #1bad1bea;
 }
-/* IDS*/
 
-
-#nickname-user{
-    margin-top: 3%;
-    text-align: center;
-    font-family: '';
+.del-carrito{
+    background-color: rgb(230, 72, 72);
+    width: auto;
+    height: auto;
+    font-size: 12px;
+}
+.del-carrito:hover {
+    background-color: rgb(177, 57, 57);
 }
 
-#contact{
+
+/* IDS */
+#carrito {
+    border-radius:15px;
+    background-color: white;
+    width: fit-content;
+    max-width: 300px; /* Limita el ancho máximo del carrito */
+    flex-shrink: 0;
+    margin-top: 3%;
+    margin-left: auto; /* Alinea el carrito al lado derecho */
+}
+
+#nickname-user {
+    margin-top: 3%;
+    text-align: center;
+}
+
+#contact {
     background-color: cornsilk;
 }
 
 #username {
-    border: 1px solid #ccc; /* Borde del input */
-    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc;
+    border-radius: 5px;
     width: 200px;
 }
 
-#catalogo{
-    font-family: 'ROBOTO';
+#catalogo {
+    font-family: 'Roboto';
 }
 
-#disconnect{
+#disconnect {
     background-color: rgb(230, 72, 72);
 }
-#disconnect:hover{
+
+#disconnect:hover {
     background-color: rgb(177, 57, 57);
 }
+
+
+@media (min-width: 768px) {
+    .table-container {
+        flex-direction: row;
+    }
+
+    .carrito {
+        margin-left: 20px;
+        margin-top: 0;
+    }
+
+    .get-user-info {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 767px) {
+    .navi {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .table-container {
+        flex-direction: column;
+    }
+
+    .carrito {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .get-user-info {
+        justify-content: center;
+    }
+
+    .table th, .table td {
+        padding: 5px;
+    }
+}
+
