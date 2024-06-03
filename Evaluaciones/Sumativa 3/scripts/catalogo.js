@@ -204,7 +204,9 @@ let catalogo_original = [
     },
 ];
 
+let carritoProductos = []
 let logueado = false
+
 function conectar() {
     let usuario = document.getElementById('username').value
 
@@ -233,6 +235,10 @@ function desconectar() {
     document.getElementById('username').value = ''
     logueado = false
     console.log(logueado)
+    catalogo = catalogo_original
+    carritoProductos = []
+    let carro = document.getElementById('carrodecompra')
+    carro.innerHTML = ''
     mostrarCatalogo()
 }
 
@@ -258,8 +264,7 @@ function mostrarCatalogo() {
                     </td>
                 </tr>`;
         }
-        else {
-            catalogo = catalogo_original
+        else {        
             tablaCatalogo.innerHTML += `<tr>
                     <td>${index + 1}</td>
                     <td><img src="${item.imagen}" width="150"></td>
@@ -277,7 +282,7 @@ function mostrarCatalogo() {
     });
 }
 
-let carritoProductos = []
+
 function añadir(indice, eliminar) {
 
     let producto = catalogo[indice];
@@ -328,7 +333,7 @@ function añadir(indice, eliminar) {
         carro.innerHTML += `<tr>
             <td>${index + 1}</td>
             <td>${producto.nombre}</td>
-            <td>${producto.cantidad}
+            <td align="end">${producto.cantidad}
             <button type="button" class="del-carrito" onclick="deletes(${index},carritoProductos)">Eliminar<i class="fas fa-pen"></i></button>
             </td>
         </tr>`;
@@ -351,7 +356,7 @@ function deletes(index, carritoProductos) {
 
     carritoProductos.splice(index, 1);
     carro.innerHTML = '';
-    
+
     carritoProductos.forEach((producto, index) => {
         carro.innerHTML += `<tr>
             <td>${index + 1}</td>
