@@ -9,6 +9,20 @@ body {
     font-family: 'Arial', sans-serif; /* Fuente genérica para todo el documento */
 }
 
+.bienvenido{
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    color: black;
+    font-family: 'Oswald';
+    font-style: italic;
+}
+
+.bienvenido h2{
+    font-size: 70px;
+
+}
+
+
 .navi {
     background-color: rgba(128, 128, 128, 0.24);
     color: black;
@@ -78,10 +92,11 @@ body {
 }
 
 .title {
+    margin-top: 10%;
     background-color: rgba(116, 116, 116, 0.507);
     color: white;
     display: grid;
-    max-width: fit-content;
+    text-align: center;
 }
 
 .title h1 {

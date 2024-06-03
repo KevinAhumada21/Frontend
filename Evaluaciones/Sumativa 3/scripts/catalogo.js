@@ -328,7 +328,6 @@ function añadir(indice, eliminar) {
         }
     }
 
-    let tiempo_mayor = 0;
 
     carro.innerHTML = '';
     carritoProductos.forEach((producto, index) => {
@@ -369,7 +368,6 @@ function deletes(index) {
     })
     let tablaCatalogo = document.getElementById("catalogo");
     tablaCatalogo.innerHTML = '';
-
     // Actualizar el catálogo
     mostrarCatalogo();
 }
